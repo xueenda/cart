@@ -1,5 +1,7 @@
 # instacart
 
+## Frontend
+
 To start:
 
 ```bash
@@ -31,3 +33,17 @@ $ npm run lint
 ---
 
 need a break
+
+## Script
+Place applicants.sqlite3 in root folder
+
+```bash
+$ node script/exportCSV.js 2014-11-12 2014-11-20
+```
+
+Export to CSV
+```bash
+$ node script/exportCSV.js 2014-11-12 2014-11-20 > applicants_stats.csv
+```
+
+Have in
