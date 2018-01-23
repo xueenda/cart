@@ -69,8 +69,16 @@ import Api from '../api'
 export default {
   mounted() {
       let user = this.$localStorage.get('applicant');
-      console.log(user.first_name);
-      // Api.partnerHot().then(res => this.partners = res)
+
+      try {
+        this.applicant = JSON.parse(user);
+        if (this.applicant.agreed)
+          this.step = 3;
+        else if (this.applicant.email)
+          this.step = 2;
+      } catch (e) {
+        console.log(e);
+      }
     },
     watch: {
       step() {
