@@ -70,14 +70,16 @@ export default {
   mounted() {
       let user = this.$localStorage.get('applicant');
 
-      try {
-        this.applicant = JSON.parse(user);
-        if (this.applicant.agreed)
-          this.step = 3;
-        else if (this.applicant.email)
-          this.step = 2;
-      } catch (e) {
-        console.log(e);
+      if (user) {
+        try {
+          this.applicant = JSON.parse(user);
+          if (this.applicant.agreed)
+            this.step = 3;
+          else if (this.applicant.email)
+            this.step = 2;
+        } catch (e) {
+          console.log(e);
+        }
       }
     },
     watch: {
